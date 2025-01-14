@@ -82,24 +82,21 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
     /* launching programs */
-	{ MODKEY,                       XK_space,  spawn,          SHCMD("rofi -show drun") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("rofi -show drun") },
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("alacritty -e tmux attach") },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("thunar") },
 	{ MODKEY,                       XK_n,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_v,      zoom,           {0} },
+	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	/*{ MODKEY,                       XK_space,  setlayout,      {0} },*/
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[0]} },
+    { MODKEY,                       XK_i,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -107,10 +104,13 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-    /* I don't really need to resize gaps ever */
-	/*   { MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },*/
+    /* Unused default bindings */
+	/*{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },*/
 	/*{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },*/
 	/*{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },*/
+	/*{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },*/
+	/*{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },*/
+	/*{ MODKEY,                       XK_space,  setlayout,      {0} },*/
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
