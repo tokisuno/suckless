@@ -7,6 +7,8 @@ I was programming in Ruby and was getting really annoyed with i3's window splitt
 - st
 
 # patches
+## dwm
 - autostart
 - fullgaps
 - systray
+- alwayscenter
