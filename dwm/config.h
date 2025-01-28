@@ -17,7 +17,7 @@ static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#504945";
 static const char col_gray3[]       = "#d5c4a1";
 static const char col_gray4[]       = "#fbf1c7";
-static const char col_cyan[]        = "#fabd2f";
+static const char col_cyan[]        = "#b57614";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -31,9 +31,9 @@ static const char *const autostart[] = {
     "pactl", "set-default-sink", "alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo", NULL,
     "pactl", "set-sink-volume", "@DEFAULT_SINK@ 25%", NULL,
     "syncthing", NULL,
-    "dwmblocks", NULL,
     "setxkbmap", "-option", "'ctrl:nocaps'", NULL,
     "picom", NULL,
+    "sh", "-c", "$HOME/dwm_config/bar", NULL,
     "sh", "-c", "feh --bg-fill $HOME/wallpapers/gruv-temple.png", NULL,
     NULL
 };
@@ -77,13 +77,12 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-/*static const char *termcmd[]  = { "alacritty", NULL };*/
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
     /* launching programs */
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("rofi -show drun") },
-	{ MODKEY,                       XK_Return, spawn,          SHCMD("ghostty -e tmux attach") },
+	{ MODKEY,                       XK_Return, spawn,          SHCMD("alacritty -e tmux attach") },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("thunar") },
 	{ MODKEY,                       XK_n,      togglebar,      {0} },

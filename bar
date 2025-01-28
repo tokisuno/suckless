@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+def remaining_minutes(time)
+  hours = time.hour
+  mins = time.min
+  1440 - ((hours * 60) + mins)
+end
+
+def leap_year?(year)
+  (year % 4).zero? && (year % 100).zero? || (year % 400).zero?
+end
+
+loop do
+  time = Time.now
+  days = leap_year?(time.year) ? 366 : 365
+
+  bar_string = "HOY(#{time.strftime('%^a')}) : MINS(#{remaining_minutes(time)}) : PROG(#{Time.now.yday}/#{days})"
+
+  bar_call = system("xprop -root -set WM_NAME '#{bar_string}'")
+  puts bar_call
+
+  sleep(60)
+end
